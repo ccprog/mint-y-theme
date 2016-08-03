@@ -1,0 +1,26 @@
+{
+  "name": "mint-y-theme",
+  "version": "1.0.8",
+  "description": "The Mint-Y theme",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linuxmint/mint-y-theme.git"
+  },
+  "author": "horst3180 (http://horst3180.deviantart.com/)",
+  "contributors": [
+    "JosephMcc (https://github.com/JosephMcc)",
+    "Clement Lefebvre (https://github.com/clefebvre)",
+    "Michael Webster (https://github.com/mtwebster)",
+    "Claus Colloseus <ccprog@gmx.de>"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/linuxmint/mint-y-theme/issues"
+  },
+  "homepage": "https://github.com/linuxmint/mint-y-theme#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "svg-icon-toolbox": "^0.2.2"
+  }
+}
