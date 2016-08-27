@@ -1,0 +1,205 @@
+// abstract base values
+$opaque: 1;
+
+$transparent_color: #000000;
+$off_color: #252935; // hsl(222, 18%, 17.5%)
+$blueish_color: #cfd6e6; //hsl(222, 31.5%, 85.7%)
+
+// variant base values
+$selected_color_light: #9ab87c;
+$selected_color_dark: #8fa876;
+
+$backdrop_light: #f0f0f0;
+$backdrop_dark: #2f2f2f;
+
+// variant specific color values by usage
+@function color($usage) {
+  //first value: light, second: dark variant
+  $result: none none;
+
+  @if $usage == active { $result: $selected_color_light $selected_color_dark }
+
+  @else if $usage == checkbox { $result: #ffffff #2e2e2e }
+  @else if $usage == checkbox_border { $result: #cfcfcf #262626 }
+
+  @else if $usage == menu { $result: #ffffff lighten(desaturate($off_color, 4%), 8%) }
+  @else if $usage == menu_border { $result: $transparent_color darken(desaturate($off_color, 8%), 6%) }
+  @else if $usage == menu_hover { $result: $transparent_color #ffffff }
+
+  @else if $usage == switch { $result: #cfcfcf #5b5b5b }
+  @else if $usage == switch_check { $result: #ffffff #353535 }
+  @else if $usage == switch_mark { $result: #8a8a8a #353535 }
+
+  @else if $usage == message { $result: lighten($blueish_color, 13.3%) $transparent_color }
+  @else if $usage == message_border { $result: $blueish_color $transparent_color }
+  @else if $usage == message_upper_border { $result: darken(desaturate($selected_color_light, 5%), 7%) none }
+
+  @else if $usage == modal { $result: lighten($off_color, 79%) lighten(desaturate($off_color, 2%), 5.5%) }
+
+  @return nth($result, index(light dark, $variant));
+}
+
+// variant specific opacity values by usage
+@function opacity($usage) {
+  //first value: light, second: dark variant
+  $result: 1 1;
+
+  @if $usage == shadow { $result: 0.75 0.65 }
+  @else if $usage == stepped_shadows { $result: (0.01 0.02 0.04 0.06 0.09)  (0.02 0.07 0.13 0.2 0.25) }
+
+  @else if $usage == menu_border { $result: 0.1 0.83 }
+  @else if $usage == menu_hover { $result: 0.04 0.05 }
+  @else if $usage == menu_hover_border { $result: 0.09 0.07 }
+  @else if $usage == submenu { $result: 0.05 0.15 }
+  @else if $usage == submenu_border { $result: 0.1 0.15 }
+
+  @else if $usage == button_border { $result: 0 0.15 }
+
+  @else if $usage == message { $result: 1 0.15 }
+  @else if $usage == message_border { $result: 1 0.38 }
+
+  @else if $usage == modal_border { $result: 0.1 0.64 }
+
+  @return nth($result, index(light dark, $variant));
+}
+
+// identical values for both variants by usage
+$button_color: lighten(desaturate($off_color, 5%), 6.2%);
+$button_opacity: 0.95;
+
+// only in overview file, not exported to icons
+#forms {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.1;
+}
+#forms use {
+  stroke: #aaaaff;
+}
+#assets > rect {
+  fill: if($variant == light, $backdrop_light, $backdrop_dark);
+}
+
+// icon styles start here
+.null {
+  fill: none;
+}
+.shadow {
+   stroke: $transparent_color;
+   opacity: opacity(shadow);
+}
+.border, .trim, .trim2, .shadow {
+  fill: none;
+  stroke-width: 1;
+}
+
+@for $i from 1 through 5 {
+    .shadow#{$i} {
+        opacity: nth(opacity(stepped_shadows), $i);
+    }
+}
+
+.checkbox {
+    .face {
+        fill: color(checkbox);
+        stroke: color(checkbox_border);
+    }
+    .active .face {
+        stroke: color(active);
+    }
+    .checked {
+        .face {
+            fill: color(active);
+            stroke: color(active);
+        }
+        .trim {
+            fill: color(checkbox);
+        }
+    }
+}
+
+.menu {
+    .face {
+        fill: color(menu);
+    }
+    .border {
+        stroke: color(menu_border);
+        opacity: opacity(menu_border);
+    }
+    .hover {
+        .face {
+            fill: color(menu_hover);
+            opacity: opacity(menu_hover);
+        }
+        .border {
+            stroke: color(menu_hover);
+            opacity: opacity(menu_hover_border);
+        }
+    }
+    .submenu {
+        .face {
+            fill: $transparent_color;
+            opacity: opacity(submenu);
+        }
+        .border {
+            stroke: $transparent_color;
+            opacity: opacity(submenu_border);
+        }
+    }
+}
+
+.switch {
+    .face {
+        fill: color(switch);
+    }
+    .face2 {
+        fill: color(switch_check);
+    }
+    .trim {
+        fill: color(switch_mark);
+    }
+    .checked {
+        .face {
+            fill: color(active);
+        }
+        .trim {
+            fill: color(switch_check);
+        }
+    }
+}
+
+#button-box {
+    .face {
+        opacity: $button_opacity;
+        fill: $button_color;
+    }
+    .border {
+        stroke: $transparent_color;
+        opacity: opacity(button_border);
+    }
+}
+#message {
+    .face {
+        fill: color(message);
+        opacity: opacity(message);
+    }
+    .border {
+        stroke: color(message_border);
+        opacity: opacity(message_border);
+    }
+    .trim {
+        fill: color(active);
+    }
+    .trim2 {
+        stroke: color(message_upper_border);
+    }
+}
+#modal {
+    .face {
+        fill: color(modal);
+    }
+    .border {
+        stroke: $transparent_color;
+        opacity: opacity(modal_border);
+    }
+}

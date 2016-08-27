@@ -1,0 +1,257 @@
+$opaque: 1;
+$opacity_shadows: (0.02 0.07 0.13 0.2 0.25);
+
+$backdrop: #e0e0e0;
+$transparent_color: #000000;
+$off_color: #252935; // hsl(222, 18%, 17.5%)
+$active_color: #8fa876;
+
+$workspace_opacity: 0.3;
+$workspace_border_opacity: 0.45;
+$workspace_check_color: #bababa;
+$workspace_active_check_color: #ffffff;
+$workspace_hover_color: #202020;
+$workspace_hover_opacity: 0.45;
+
+$screen_shadow_opacity: 0.65;
+$screen_opacity: 0.95;
+$screen_border_color: darken(saturate($off_color, 8%), 6%); //hsl(222, 26%, 11.5%)
+$bg_color: lighten(desaturate($off_color, 5%), 6.2%); //hsl(222, 13%, 23.7%)
+$bg_border_opacity: 0.81;
+$desklet_color: lighten(desaturate($off_color, 8%), 8.5%); //hsl(222, 10%, 26%)
+$desklet_border_opacity: 0.72;
+$header_color: lighten($off_color, 2.4%); //hsl(222, 18%, 19.9%)
+$header_border_opacity: 0.84;
+$header_trim_opacity: 0.2;
+$osd_color: $off_color;
+$osd_border_color: darken($off_color, 10.5%); //hsl(222, 18%, 7%)
+$osd_border_opacity: 0.85;
+
+$arrow_color: #a1a1a1;
+
+$close_color: #f75961; //hsl(357, 91%, 66%)
+$close_shadow_opacity: 0.1;
+$close_check_color: #ffffff;
+$close_active_color: darken(desaturate($close_color, 23%), 13%); //hsl(357, 68%, 53%)
+$close_hover_color: lighten(saturate($close_color, 9%), 8%); //hsl(357, 100%, 74%)
+
+$overview_color: #ffffff;
+$opacity_overview_shadows: (0.02 0.04 0.05 0.06);
+$opacity_overview_trims: (0.05 0.1 0.08 0.16 0.32 0.40);
+
+$trash_icon_color: #ffffff;
+$trash_icon_opacity: 0.81;
+
+$activities_color: #ffffff;
+$activities_active_color: #5294e2;
+
+$panel_color: #2f2f2f;
+$panel_opacity: 0.95;
+$panel_border_color: #111111;
+$panel_border_opacity: 0.85;
+
+// only in overview file, not exported to icons
+#forms {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.1;
+}
+#forms use {
+  stroke: #aaaaff;
+}
+#assets > rect {
+  fill: $backdrop;
+}
+
+// icon styles start here
+.null {
+  fill: none;
+}
+.shadow {
+   stroke: $transparent_color;
+}
+.border, .trim, .shadow {
+  fill: none;
+  stroke-width: 1;
+}
+
+.workspace{
+     .face {
+        opacity: $workspace_opacity;
+        fill: $transparent_color;
+    }
+    .border {
+        opacity: $workspace_border_opacity;
+        stroke: $transparent_color;
+    }
+    .trim {
+        stroke: $workspace_check_color;
+        stroke-width: 2;
+        stroke-linecap: round;
+    }
+    .active {
+        .face {
+            opacity: $opaque;
+            fill: $active_color;
+        }
+        .border {
+            opacity: $opaque;
+            stroke: $active_color;
+        }
+        .trim {
+            stroke: $workspace_active_check_color;
+        }
+    }
+    .hover .face {
+        opacity: $workspace_hover_opacity;
+        fill: $workspace_hover_color;
+    }
+}
+
+.screen {
+    .shadow {
+        opacity: $screen_shadow_opacity;
+    }
+    @for $i from 1 through 5 {
+        .shadow#{$i} {
+            opacity: nth($opacity_shadows, $i);
+        }
+    }
+    .face {
+        opacity: $screen_opacity;
+    }
+    .border {
+        stroke: $screen_border_color;
+    }
+    #bg {
+        .face {
+            fill: $bg_color;
+        }
+        .border {
+            opacity: $bg_border_opacity;
+        }
+    }
+    #desklet {
+        .face {
+            fill: $desklet_color;
+        }
+        .border {
+            stroke: $transparent_color;
+            opacity: $desklet_border_opacity;
+        }
+    }
+    #desklet-header {
+        .face {
+            fill: $header_color;
+        }
+        .border {
+            opacity: $header_border_opacity;
+        }
+        .trim {
+            stroke: $transparent_color;
+            opacity: $header_trim_opacity;
+        }
+    }
+    #osd {
+        .face {
+            fill: $osd_color;
+        }
+        .border {
+            stroke: $osd_border_color;
+            opacity: $osd_border_opacity;
+        }
+    }
+}
+
+.arrow {
+    .trim {
+        fill: $arrow_color;
+    }
+    .hover .trim {
+        fill: $active_color;
+    }
+}
+
+.close {
+    .shadow {
+        opacity: $close_shadow_opacity;
+        fill: $transparent_color;
+        stroke: none;
+    }
+    .face {
+        fill: $close_color;
+    }
+    .active .face {
+        fill: $close_active_color;
+    }
+    .hover .face {
+        fill: $close_hover_color;
+    }
+    .trim {
+        fill: $close_check_color;
+    }
+}
+
+.overview {
+    @for $i from 1 through 4 {
+        .shadow#{$i} {
+            opacity: nth($opacity_overview_shadows, $i);
+        }
+    }
+    .trim {
+        stroke: $overview_color;
+    }
+    @for $i from 1 through 6 {
+        .trim#{$i} {
+            opacity: nth($opacity_overview_trims, $i);
+        }
+    }
+}
+
+#corner-ripple {
+    .face {
+        fill: url(#rg1);
+    }
+}
+
+#trash-icon {
+    .face {
+        opacity: $workspace_opacity;
+        fill: $transparent_color;
+    }
+    .border {
+        opacity: $workspace_border_opacity;
+        stroke: $transparent_color;
+    }
+    .trim {
+        opacity: $trash_icon_opacity;
+        fill: $trash_icon_color;
+    }
+}
+
+.activities {
+    .trim {
+        fill: $activities_color;
+    }
+    .active .trim {
+        fill: $activities_active_color;
+    }
+}
+
+.panel {
+    .face {
+        opacity: $panel_opacity;
+        fill: $panel_color;
+    }
+    .border {
+        opacity: $panel_border_opacity;
+        stroke: $panel_border_color;
+    }
+}
+
+.windowlist {
+    .face {
+        fill: $active_color;
+    }
+}
+
