@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="350" width="550">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" height="350" width="550">
   <defs><style type="text/css"><![CDATA[
 #forms {
   fill: none;
@@ -211,7 +211,7 @@
       <stop offset="1" stop-color="#8fa876" stop-opacity="1"/>
     </radialGradient>
   </defs>
-  <g id="forms" transform="translate(400,0)">
+  <g id="forms" inkscape:groupmode="layer" inkscape:label="Forms - edit here" transform="translate(400,0)">
     <g id="workspace-form">
       <rect id="f1" x="6" y="6" rx="2" ry="2" width="37" height="198"/>
       <rect id="f2" x="5.5" y="5.5" rx="2.5" ry="2.5" width="38" height="199"/>
@@ -245,7 +245,7 @@
       <path id="t5" d="M 25,19 27,19 27,21 25,21 Z M 19,19 21,19 21,21 19,21 Z M 13,19 15,19 15,21 13,21 Z"/>
     </g>
   </g>
-  <g id="assets">
+  <g id="assets" inkscape:groupmode="layer" inkscape:label="Assets" sodipodi:insensitive="true">
     <rect x="0" y="0" width="400" height="350"/>
     <g class="menu" transform="translate(0,350)">
       <rect id="menu-separator" x="0" y="0" width="320" height="2" class="null"/>
