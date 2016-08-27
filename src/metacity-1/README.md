@@ -1,0 +1,1 @@
+Run `grunt metacity_assets` from a terminal in the base theme folder to render the icons.

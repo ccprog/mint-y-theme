@@ -314,6 +314,27 @@ module.exports = function(grunt) {
           ]
         }
       },
+      metacity: {
+        src: 'src/metacity-1/assets.svg',
+        options: {
+          tasks: [
+            {
+              task: 'export',
+              arg: {
+                ids: [
+                  'button-bg',
+                  'button-border',
+                  'close-icon',
+                  'min-icon',
+                  'max-icon'
+                ],
+                format: 'svg',
+                dir: 'src/metacity-1/'
+              }
+            }
+          ]
+        }
+      },
       xfwm4_light: {
         src: 'src/xfwm4/assets-light.svg',
         options: {
@@ -403,6 +424,9 @@ module.exports = function(grunt) {
   ]);
   grunt.task.registerTask('gtk_3_18_assets', [
     'svg_icon_toolbox:gtk_3_18'
+  ]);
+  grunt.task.registerTask('metacity_assets', [
+    'svg_icon_toolbox:metacity'
   ]);
   grunt.task.registerTask('xfwm4_assets', [
     'svg_icon_toolbox:xfwm4_light',
