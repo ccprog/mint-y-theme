@@ -1,0 +1,2 @@
+#!/bin/bash
+optipng -o7 --quiet $1 2>&1

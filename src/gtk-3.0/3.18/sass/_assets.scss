@@ -1,0 +1,257 @@
+$color_light: #9ab87c;
+$color_dark: #8fa876;
+
+$opaque: 1;
+$opacity_insensitive: 0.55;
+
+$color_separator: black;
+$opacity_separator: 0.2;
+
+@function color($var, $usage) {
+  $result: none none none;
+
+  @if $usage == selected { $result: $color_light $color_dark $color_light }
+
+  @else if $usage == base { $result: #cfcfcf #5b5b5b black }
+  @else if $usage == switch { $result: white #353535 white }
+  @else if $usage == switch_mark { $result: #8a8a8a #353a47 white }
+  @else if $usage == base_active { $result: $color_light $color_dark white }
+  @else if $usage == switch_active { $result: white #353535 $color_light }
+  @else if $usage == switch_mark_active { $result: white #353a47 $color_light }
+
+  @else if $usage == check { $result: white #2d2d2d white }
+  @else if $usage == check_border { $result: #cfcfcf #262934 white }
+  @else if $usage == check_active { $result: $color_light $color_dark white }
+  @else if $usage == selectionmode_mark { $result: #ececec #484b56 }
+  @else if $usage == check_mark { $result: white #2b303b $color_light }
+
+  @else if $usage == header { $result: white #5b5b5b }
+  @else if $usage == header_switch { $result: #cfcfcf #2d2d2d }
+  @else if $usage == header_switch_mark { $result: #5c616c #2d323f }
+  @else if $usage == header_switch_active { $result: white #2d2d2d }
+  @else if $usage == header_switch_mark_active { $result: white #2d323f }
+
+  @else if $usage == header_mark { $result: #7a7f8b #b9bcc2 }
+  @else if $usage == close_mark { $result: #f8f8f9 none }
+  @else if $usage == hover { $result: white #5f687e null }
+  @else if $usage == hover_border { $result: #515e79 #16161b }
+  @else if $usage == hover_mark { $result: #7a7f8b #c4c7cc }
+  @else if $usage == active { $result: #9b9b9b #9b9b9b }
+  @else if $usage == active_mark { $result: white white }
+
+  @return nth($result, index(light dark selected, $var));
+}
+
+@function opacity($var, $usage) {
+  $result: 1 1 1;
+
+  @if $usage == base { $result: 1 1 0.2 }
+  @else if $usage == switch_mark { $result: 1 1 0.6 }
+
+  @else if $usage == check { $result: 1 1 0.12 }
+  @else if $usage == check_border { $result: 1 1 0.5 }
+
+  @else if $usage == header_switch_mark { $result: 0.6 1 }
+
+  @else if $usage == header_mark {  $result: 0.8 0.7 }
+  @else if $usage == header_backdrop {  $result: 0.45 0.4 }
+  @else if $usage == hover { $result: 0.95 0.45 }
+  @else if $usage == hover_border { $result: 0.15 0.37 }
+
+  @return nth($result, index(light dark selected, $var));
+}
+
+$variant: 'light';
+$darker: 'false';
+@import 'colors';
+#light > rect {
+  fill: $bg_color;
+}
+#header-light > rect {
+  fill: $header_bg;
+}
+#selected > rect {
+  fill: $selected_bg_color;
+}
+$variant: 'dark';
+@import 'colors';
+#dark > rect {
+  fill: $bg_color;
+}
+#header-dark > rect {
+  fill: $header_bg;
+}
+
+.null {
+  fill: none;
+  stroke: none;
+}
+.insensitive {
+  opacity: $opacity_insensitive;
+}
+
+@each $var in light, dark, selected {
+  ##{$var} {
+    .switch {
+      .face {
+        fill: color($var, base);
+        opacity: opacity($var, base);
+      }
+      .face2 {
+        fill: color($var, switch);
+      }
+      .trim {
+        fill: color($var, switch_mark);
+        opacity: opacity($var, switch_mark);
+      }
+      .active {
+        .face {
+          fill: color($var, base_active);
+          opacity: $opaque;
+        }
+        .face2 {
+          fill: color($var, switch_active);
+          opacity: $opaque;
+        }
+        .trim {
+          fill: color($var, switch_mark_active);
+          opacity: $opaque;
+        }
+      }
+    }
+
+    .check {
+      .face {
+        fill: color($var, check);
+        stroke: color($var, check_border);
+        fill-opacity: opacity($var, check);
+        opacity: opacity($var, check_border);
+      }
+      .checked .face,
+      .mixed .face {
+        fill: color($var, check_active);
+        stroke: color($var, check_active);
+        fill-opacity: $opaque;
+        opacity: $opaque;
+      }
+      .trim {
+        fill: color($var, check_mark);
+      }
+    }
+    .radio {
+      @extend .check;
+    }
+
+    @if $var != selected {
+      .selectionmode {
+        .face {
+          fill: color($var, check);
+          stroke: color($var, check_border);
+        }
+        .trim {
+          fill: color($var, selectionmode_mark);
+        }
+        .checked {
+          .face {
+            fill: color($var, check_active);
+            stroke: color($var, check_active);
+         }
+          .trim {
+            fill: color($var, check_mark);
+          }
+        }
+      }
+    }
+  }
+
+  @if $var != selected {
+    #header-#{$var} {
+      .switch {
+        .face {
+          fill: color($var, header);
+        }
+        .face2 {
+          fill: color($var, header_switch);
+        }
+        .trim {
+          opacity: opacity($var, header_switch_mark);
+          fill: color($var, header_switch_mark);
+        }
+        .active {
+          .face {
+            opacity: $opaque;
+            fill: color($var, selected);
+          }
+          .face2 {
+            fill: color($var, header_switch_active);
+          }
+          .trim {
+            opacity: $opaque;
+            fill: color($var, header_switch_mark_active);
+          }
+        }
+      }
+
+      .titlebutton {
+        .min, .max {
+          opacity: opacity($var, header_mark);
+        }
+        .trim, .backdrop.close .face {
+          fill: color($var, header_mark);
+        }
+        .close .face {
+          fill: color(light, selected);
+        }
+        .close .trim {
+          fill: color($var, close_mark);
+        }
+        .backdrop {
+          opacity: opacity($var, header_backdrop);
+        }
+        .hover.min, .hover.max,
+        .active.min, .active.max {
+          opacity: $opaque;
+        }
+        .hover.min .trim, .hover.max .trim {
+          fill: color($var, hover_mark);
+        }
+        .hover {
+          .face {
+            fill: color($var, hover);
+            opacity: opacity($var, hover);
+          }
+          .face2 {
+            fill: none;
+            stroke: color($var, hover_border);
+            opacity: opacity($var, hover_border);
+          }
+          &.close .face {
+            fill: saturate(color(light, selected), 6%);
+            opacity: $opaque;
+          }
+        }
+        .active {
+          .face {
+            fill: color($var, active);
+            stroke: color($var, active);
+          }
+          .trim {
+            fill: color($var, active_mark);
+          }
+          &.close .face {
+            fill: darken(desaturate(color(light, selected), 3%), 14%);
+            stroke: none;
+          }
+        }
+      }
+
+      @if $var == light {
+        .separator {
+          stroke: $color_separator;
+          opacity: $opacity_separator;
+        }
+      }
+    }
+  }
+}
+
