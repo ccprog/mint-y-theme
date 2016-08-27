@@ -1,0 +1,127 @@
+$mark: #909090;
+$close: #9ab87c; //hsl(90, 29.7%, 60.4%)
+
+// variant specific color values by usage
+@function color($usage) {
+  //first value: light, second: dark variant
+  $result: none none;
+
+  @if $usage == back-top { $result: #eeeeee #373737 }
+  @if $usage == back-bottom { $result: #bfbfbf #2f2f2f }
+  @if $usage == back { $result: #d9d9d9 #2f2f2f }
+
+  @if $usage == inactive-mark { $result: #b6b6b6 #666666 }
+  @if $usage == prelight { $result: #ffffff #4c4c4c }
+  @if $usage == prelight-mark { $result: #7a7a7a #c4c4c4 }
+  @if $usage == prelight-border { $result: #d0d0d0 #272727 }
+  @if $usage == pressed { $result: #808080 #949494 }
+  @if $usage == pressed-border { $result: #808080 #272727 }
+  @if $usage == pressed-mark { $result: #ffffff #ffffff }
+
+  @if $usage == close-mark { $result: #ffffff #2f2f2f }
+  @if $usage == close-border { $result: $close #808080 }
+  @if $usage == close-inactive { $result: #b6b6b6 #949494 }
+  @if $usage == close-inactive-border { $result: #b6b6b6 color(close-border) }
+  @if $usage == close-inactive-mark { $result: #eeeeee color(close-mark) }
+  @if $usage == close-prelight { $result: saturate($close, 4%) saturate($close, 14%) }
+  @if $usage == close-prelight-border { $result: color(close-prelight) color(close-border) }
+  @if $usage == close-pressed { $result: darken($close, 12%) darken($close, 15%) }
+  @if $usage == close-pressed-border { $result: color(close-pressed) color(close-border) }
+
+  @if $usage == hide-mark { $result: color(pressed) $mark }
+  @if $usage == menu-pressed { $result: $mark color(pressed) }
+
+  @if $usage == stick-inactive { $result: #b0b0b0 color(inactive-mark) }
+  @if $usage == stick-prelight-border { $result: #b0b0b0 color(prelight-mark) }
+
+  @return nth($result, index(light dark, $variant));
+}
+
+#forms {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 0.1;
+    use {
+        stroke: #aaaaff;
+    }
+}
+
+.border {
+    fill: none;
+    &.top {
+        stroke: color(back-top);
+    }
+    &.bottom {
+        stroke: color(back-bottom);
+    }
+}
+.back {
+    fill: color(back);
+}
+.active .trim {
+    fill: $mark;
+}
+.inactive .trim {
+    fill: color(inactive-mark);
+}
+.prelight {
+    .face {
+        fill: color(prelight);
+        stroke: color(prelight-border);
+    }
+    .trim {
+        fill: color(prelight-mark);
+    }
+}
+.pressed {
+    .face {
+        fill: color(pressed);
+        stroke: color(pressed-border);
+    }
+    .trim {
+        fill: color(pressed-mark);
+    }
+}
+#close {
+    .trim {
+        fill: color(close-mark);
+    }
+    .active .face {
+        fill: $close;
+        stroke: color(close-border);
+    }
+    .inactive .face {
+        fill: color(close-inactive);
+        stroke: color(close-inactive-border);
+    }
+    .inactive .trim {
+        fill: color(close-inactive-mark);
+    }
+    .prelight .face {
+        fill: color(close-prelight);
+        stroke: color(close-prelight-border);
+    }
+    .pressed .face {
+        fill: color(close-pressed);
+        stroke: color(close-pressed-border);
+    }
+}
+#hide .active .trim {
+    fill: color(hide-mark);
+}
+#menu .pressed .face {
+    fill: color(menu-pressed);
+}
+.stick {
+    .active .face {
+        fill: none;
+        stroke: $mark;
+    }
+    .inactive .face {
+        fill: none;
+        stroke: color(stick-inactive);
+    }
+    .prelight .face {
+        stroke: color(stick-prelight-border);
+    }
+}

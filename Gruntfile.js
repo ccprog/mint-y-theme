@@ -314,6 +314,74 @@ module.exports = function(grunt) {
           ]
         }
       },
+      xfwm4_light: {
+        src: 'src/xfwm4/assets-light.svg',
+        options: {
+          tasks: [
+            {
+              task: 'stylize',
+              arg: {src: 'src/xfwm4/sass/assets-light.scss'}
+            },
+            {
+              task: 'write'
+            },
+            {
+              task: 'export',
+              arg: {
+                idFile: 'src/xfwm4/assets.txt',
+                format: 'svg',
+                postProcess: 'bin/svg2xpm',
+                dir: 'src/xfwm4/light-assets/'
+              }
+            }
+          ]
+        }
+      },
+      xfwm4_dark: {
+        src: 'src/xfwm4/assets-dark.svg',
+        options: {
+          tasks: [
+            {
+              task: 'stylize',
+              arg: {src: 'src/xfwm4/sass/assets-dark.scss'}
+            },
+            {
+              task: 'write'
+            },
+            {
+              task: 'export',
+              arg: {
+                idFile: 'src/xfwm4/assets.txt',
+                format: 'svg',
+                postProcess: 'bin/svg2xpm',
+                dir: 'src/xfwm4/dark-assets/'
+              }
+            }
+          ]
+        }
+      },
+      xfwm4_align: {
+        src: 'src/xfwm4/assets-light.svg',
+        options: {
+          tasks: [
+            {
+              task: 'stylize',
+              arg: {src: 'src/xfwm4/sass/assets-light.scss'}
+            },
+            {
+              task: 'write'
+            },
+            {
+              task: 'stylize',
+              arg: {src: 'src/xfwm4/sass/assets-dark.scss'}
+            },
+            {
+              task: 'write',
+              arg: 'src/xfwm4/assets-dark.svg'
+            }
+          ]
+        }
+      },
     },
   });
 
@@ -335,5 +403,12 @@ module.exports = function(grunt) {
   ]);
   grunt.task.registerTask('gtk_3_18_assets', [
     'svg_icon_toolbox:gtk_3_18'
+  ]);
+  grunt.task.registerTask('xfwm4_assets', [
+    'svg_icon_toolbox:xfwm4_light',
+    'svg_icon_toolbox:xfwm4_dark'
+  ]);
+  grunt.task.registerTask('xfwm4_align', [
+    'svg_icon_toolbox:xfwm4_align'
   ]);
 };
