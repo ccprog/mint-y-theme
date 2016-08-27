@@ -63,7 +63,11 @@ if __name__ == '__main__':
             # XFCE-Notify
             os.system("cp -R xfce-notify-4.0 %s" % dest_folder)
             # XFWM
-            os.system("cp -R xfwm4 %s" % dest_folder)
+            version_folder = os.path.join(dest_folder, "xfwm4")
+            os.system("rm -rf %s" % version_folder)
+            os.system("cp -R xfwm4/light-assets %s" % dest_folder)
+            os.system("mv %s %s" % (os.path.join(dest_folder, "light-assets"), version_folder))
+            os.system("cp -R xfwm4/themerc %s" % version_folder)
 
         elif variation == "Mint-Y-Darker":
             print("    Building Mint-Y-Darker")
@@ -83,9 +87,11 @@ if __name__ == '__main__':
             # XFCE-Notify
             os.system("cp -R xfce-notify-4.0 %s" % dest_folder)
             # XFWM
-            os.system("rm -rf %s" % os.path.join(dest_folder, "xfwm4"))
-            os.system("cp -R xfwm4-dark %s" % dest_folder)
-            os.system("mv %s %s" % (os.path.join(dest_folder, "xfwm4-dark"), os.path.join(dest_folder, "xfwm4")))
+            version_folder = os.path.join(dest_folder, "xfwm4")
+            os.system("rm -rf %s" % version_folder)
+            os.system("cp -R xfwm4/dark-assets %s" % dest_folder)
+            os.system("mv %s %s" % (os.path.join(dest_folder, "dark-assets"), version_folder))
+            os.system("cp -R xfwm4/themerc-dark %s" % os.path.join(version_folder, "themerc"))
 
         elif variation == "Mint-Y-Dark":
             print("    Building Mint-Y-Dark")
@@ -117,6 +123,8 @@ if __name__ == '__main__':
             # XFCE-Notify
             os.system("cp -R xfce-notify-4.0 %s" % dest_folder)
             # XFWM
-            os.system("rm -rf %s" % os.path.join(dest_folder, "xfwm4"))
-            os.system("cp -R xfwm4-dark %s" % dest_folder)
-            os.system("mv %s %s" % (os.path.join(dest_folder, "xfwm4-dark"), os.path.join(dest_folder, "xfwm4")))
+            version_folder = os.path.join(dest_folder, "xfwm4")
+            os.system("rm -rf %s" % version_folder)
+            os.system("cp -R xfwm4/dark-assets %s" % dest_folder)
+            os.system("mv %s %s" % (os.path.join(dest_folder, "dark-assets"), version_folder))
+            os.system("cp -R xfwm4/themerc-dark %s" % os.path.join(version_folder, "themerc"))
