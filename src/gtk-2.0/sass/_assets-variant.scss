@@ -1,0 +1,392 @@
+$opaque: 1;
+$transparent: 0.55;
+
+// variant specific color values by usage
+@function color($usage) {
+  //first value: light, second: dark variant
+  $result: none none;
+
+  @if $usage == back { $result: #f5f6f7 #383838 }
+  @else if $usage == back_notebook { $result: white #404040 }
+  @else if $usage == back_toolbar { $result: #d9d9d9 #2e2e2e }
+
+  @else if $usage == base_1 { $result: white #404040 }
+  @else if $usage == base_2 { $result: white #444444 }
+  @else if $usage == unchecked { $result: white #2e2e2e }
+  @else if $usage == active { $result: #d3d3d3 #2e2e2e }
+  @else if $usage == selected { $result: #9ab87c #8fa876 }
+  @else if $usage == insensitive { $result: #fbfcfc #3e3e3e }
+  @else if $usage == opposite { $result: black white }
+
+  @else if $usage == line { $result: #dedede #2b2b2b }
+  @else if $usage == handle { $result: #cfcfcf #525252 }
+
+  @else if $usage == scrollbar_trough { $result: #fbfcfc #3e3e3e }
+  @else if $usage == scrollbar { $result: #b8b8b8 #767676 }
+  @else if $usage == scrollbar_prelight { $result: #d3d3d3 #8f8f8f }
+  @else if $usage == scrollbar_insensitive { $result: #eaeaea #545454 }
+
+  @else if $usage == button { $result: #fbfcfc #444444 }
+  @else if $usage == button_prelight { $result: white #505050 }
+  @else if $usage == button_insensitive { $result: #fbfcfc #3e3e3e }
+  @else if $usage == flat_box { $result: white #383838 }
+
+  @else if $usage == range_no { $result: #cfcfcf #2d2d2d }
+  @else if $usage == range_insensitive { $result: #fbfcfc #44454a }
+  @else if $usage == frame_back { $result: #d7d7d7 #2b2b2b }
+
+  @else if $usage == toolbar { $result: #d9d9d9 #383838 }
+  @else if $usage == toolbar_inline { $result: #f0f0f0 #313131 }
+  @else if $usage == treeview { $result: #ededed #353535 }
+  @else if $usage == menubar { $result: #e7e7e7 #2e2e2e }
+  @else if $usage == toolbar_shadow_insensitive { $result: #fbfcfc #383838 }
+
+  @else if $usage == border { $result: #cfcfcf #2b2b2b }
+  @else if $usage == border_unchecked { $result: #cfcfcf #262626 }
+  @else if $usage == border_active { $result: #b8b8b8 #2b2b2b }
+  @else if $usage == border_insensitive { $result: #e2e2e2 #303030 }
+  @else if $usage == border_notebook_shadow_insensitive { $result: #e5e5e5 #303030 }
+
+  @else if $usage == border_line { $result: #cfcfcf #cfcfcf }
+
+  @else if $usage == border_scrollbar { $result: #dbdbdb #2b2b2b }
+  @else if $usage == border_button_active { $result: #b8b8b8 #282828 }
+
+  @else if $usage == border_range { $result: #cbcbcb #262933 }
+  @else if $usage == border_range_insensitive { $result: #e2e2e2 #34353a }
+  
+  @else if $usage == border_toolbar { $result: #c7c7c7 #2e2e2e }
+  @else if $usage == border_treeview { $result: #dadada #2b2b2b }
+  @else if $usage == border_menubar { $result: #d7d7d7 #262626 }
+  @else if $usage == border_toolbar_shadow { $result: #cfcfcf #252525 }
+  @else if $usage == border_toolbar_shadow_insensitive { $result: #d4d4d4 #252525 }
+
+  @else if $usage == mark_check { $result: white #2b2b2b }
+  @else if $usage == mark_arrow { $result: #5c5c5c #939393 }
+  @else if $usage == mark_arrow_prelight { $result: #8c8c8c #d0d0d0 }
+  @else if $usage == mark_arrow_insensitive { $result: #5c5c5c #5c5c5c }
+  @else if $usage == mark_arrow_small_prelight { $result: #8c8c8c #c7c7c7 }
+  @else if $usage == mark_expander { $result: #5c5c5c #7a7a7a }
+
+  @return nth($result, index(light dark, $variant));
+}
+
+// variant specific opacity values by usage
+@function opacity($usage) {
+  //first value: light, second: dark variant
+  $result: 1 1;
+
+  @if $usage == arrow { $result: 0.55 $opaque }
+  @else if $usage == line { $result: 0.67 0.15 }
+  @else if $usage == opposite_fill { $result: 0.05 0.06 }
+  @else if $usage == opposite_border { $result: 0.11 0.11 }
+  @else if $usage == combobox_border { $result: 0.3 0.58 }
+  @else if $usage == frame_gap { $result: 0.25 $opaque }
+
+  @return nth($result, index(light dark, $variant));
+}
+
+#plane {
+  fill: color(back);
+}
+
+.null {
+  fill: none;
+  stroke: none;
+}
+
+.check {
+  .unchecked .face {
+    fill: color(unchecked);
+    stroke: color(border_unchecked);
+  }
+  .checked .face {
+    fill: color(selected);
+    stroke: color(selected);
+  }
+  .trim {
+    fill: color(mark_check);
+  }
+  .insensitive {
+    opacity: $transparent;
+  }
+}
+.option {
+  @extend .check;
+}
+
+.arrow {
+  fill: color(mark_arrow);
+  .insensitive {
+    opacity: opacity(arrow);
+    fill: color(mark_arrow_insensitive);
+  }
+  .prelight {
+    fill: color(mark_arrow_prelight);
+  }
+}
+
+.line {
+  fill: color(line);
+  .focus {
+    opacity: opacity(line);
+    fill: none;
+    stroke: color(border_line);
+  }
+}
+
+.handle .face {
+  fill: none;
+  stroke: color(handle);
+}
+
+.expander {
+  .face {
+    fill: color(unchecked);
+    stroke: color(border_unchecked);
+  }
+  .trim {
+    fill: none;
+    stroke: color(mark_expander);
+  }
+}
+
+#s_scrollbar {
+  .trough {
+    .face {
+      fill: color(scrollbar_trough);
+    }
+    .trim {
+      fill: color(border_scrollbar);
+    }
+  }
+  .slider {
+    stroke: color(scrollbar);
+    .active {
+      stroke: color(selected);
+    }
+    .prelight {
+      stroke: color(scrollbar_prelight);
+    }
+    .insensitive {
+      stroke: color(scrollbar_insensitive);
+    }
+  }
+}
+
+#s_menu_item {
+  .box {
+    .face {
+      fill: color(opposite);
+      opacity: opacity(opposite_fill);
+    }
+    .trim {
+      fill: color(opposite);
+      opacity: opacity(opposite_border);
+    }
+  }
+  .arrow .prelight {
+    fill: color(mark_arrow);
+  }
+}
+
+#s_button {
+  .face {
+    fill: color(button);
+    stroke: color(border);
+  }
+  .prelight .face {
+    fill: color(button_prelight);
+  }
+  .insensitive .face {
+    fill: color(button_insensitive);
+    stroke: color(border_insensitive);
+  }
+  .active .face {
+    fill: color(active);
+    stroke: color(border_button_active);
+  }
+}
+
+.shadow {
+  .back {
+    fill: none;
+    stroke: color(back);
+  }
+  .face {
+    fill: none;
+    stroke: color(border);
+  }
+  .insensitive .face {
+    fill: color(insensitive);
+    stroke: color(border_insensitive);
+  }
+  .active .face {
+    stroke: color(selected);
+  }
+}
+
+#s_standalone_entry .shadow .face {
+  fill: color(base_1);
+}
+
+#s_notebook_entry .shadow {
+  .back {
+    stroke: color(base_1);
+  }
+  .insensitive .face {
+    stroke: color(border_notebook_shadow_insensitive);
+  }
+}
+#s_notebook_combobox_entry {
+  @extend #s_notebook_entry;
+}
+
+#s_toolbar_entry .shadow {
+  .back {
+    stroke: color(back_toolbar);
+  }
+  .face {
+    stroke: color(border_toolbar_shadow);
+  }
+  .insensitive .face {
+    fill: color(toolbar_shadow_insensitive);
+    stroke: color(border_toolbar_shadow_insensitive);
+  }
+  .active .face {
+    stroke: color(selected);
+  }
+}
+
+#s_combobox_entry_button {
+  @extend #s_button;
+  .trim {
+    opacity: opacity(combobox_border);
+    stroke: color(border);
+  }
+  .insensitive .trim {
+    stroke: color(border_insensitive);
+  }
+  .active .trim {
+    opacity: $opaque;
+    stroke: color(border_button_active);
+  }
+}
+
+#s_spinbutton {
+  .box {
+    .face {
+      fill: color(base_1);
+      stroke: color(border);
+    }
+    .insensitive .face {
+      fill: color(insensitive);
+      stroke: color(border_insensitive);
+    }
+  }
+  .arrow .prelight {
+    fill: color(mark_arrow_small_prelight);
+  }
+}
+
+.flat_box {
+  fill: color(flat_box);
+}
+
+#s_notebook {
+  .box, .extension .active {
+    fill: color(base_1);
+    stroke: color(line);
+  }
+  .box_gap {
+    fill: color(base_1);
+  }
+}
+#s_frame {
+  .shadow .face {
+    fill: color(base_1);
+    stroke: color(line);
+  }
+  .shadow_gap .back {
+    opacity: opacity(frame_gap);
+    fill: color(frame_back);
+  }
+  .shadow_gap .face {
+    fill: color(line);
+  }
+}
+
+#s_range {
+  .box {
+    .upper {
+      stroke: color(range_no);
+    }
+    .lower {
+      stroke: color(selected);
+    }
+  }
+  .slider {
+    fill: color(base_2);
+    stroke: color(border_range);
+    .prelight {
+      fill: color(selected);
+      stroke: color(selected);
+    }
+    .insensitive {
+      fill: color(range_insensitive);
+      stroke: color(border_range_insensitive);
+    }
+  }
+}
+
+#s_progressbar {
+  .bar {
+    stroke: color(selected);
+  }
+  .trough {
+    stroke: color(range_no);
+  }
+}
+
+#s_treeview_header {
+  .face {
+    fill: color(treeview);
+  }
+  .trim {
+    fill: none;
+    stroke: color(border_treeview);
+  }
+}
+
+#s_toolbar {
+  .face {
+    fill: color(toolbar);
+  }
+  .trim {
+    fill: none;
+    stroke: color(border_toolbar);
+  }
+}
+#s_inline_toolbar {
+  .face {
+    fill: color(toolbar_inline);
+  }
+  .trim {
+    fill: none;
+    stroke: color(line);
+  }
+}
+
+#s_menubar {
+  .face {
+    fill: color(menubar);
+  }
+  .trim {
+    fill: none;
+    stroke: color(border_menubar);
+  }
+}
+
+#s_menubar_item .prelight {
+  fill: color(selected);
+}
