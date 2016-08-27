@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="350" width="550">
+  <defs><style type="text/css"><![CDATA[
+#forms {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.1; }
+
+#forms use {
+  stroke: #aaaaff; }
+
+#assets > rect {
+  fill: #e0e0e0; }
+
+.null {
+  fill: none; }
+
+.shadow {
+  stroke: #000000; }
+
+.border, .trim, .shadow {
+  fill: none;
+  stroke-width: 1; }
+
+.workspace .face {
+  opacity: 0.3;
+  fill: #000000; }
+
+.workspace .border {
+  opacity: 0.45;
+  stroke: #000000; }
+
+.workspace .trim {
+  stroke: #bababa;
+  stroke-width: 2;
+  stroke-linecap: round; }
+
+.workspace .active .face {
+  opacity: 1;
+  fill: #8fa876; }
+
+.workspace .active .border {
+  opacity: 1;
+  stroke: #8fa876; }
+
+.workspace .active .trim {
+  stroke: #ffffff; }
+
+.workspace .hover .face {
+  opacity: 0.45;
+  fill: #202020; }
+
+.screen .shadow {
+  opacity: 0.65; }
+
+.screen .shadow1 {
+  opacity: 0.02; }
+
+.screen .shadow2 {
+  opacity: 0.07; }
+
+.screen .shadow3 {
+  opacity: 0.13; }
+
+.screen .shadow4 {
+  opacity: 0.2; }
+
+.screen .shadow5 {
+  opacity: 0.25; }
+
+.screen .face {
+  opacity: 0.95; }
+
+.screen .border {
+  stroke: #161a25; }
+
+.screen #bg .face {
+  fill: #353945; }
+
+.screen #bg .border {
+  opacity: 0.81; }
+
+.screen #desklet .face {
+  fill: #3c3f49; }
+
+.screen #desklet .border {
+  stroke: #000000;
+  opacity: 0.72; }
+
+.screen #desklet-header .face {
+  fill: #2a2f3c; }
+
+.screen #desklet-header .border {
+  opacity: 0.84; }
+
+.screen #desklet-header .trim {
+  stroke: #000000;
+  opacity: 0.2; }
+
+.screen #osd .face {
+  fill: #252935; }
+
+.screen #osd .border {
+  stroke: #0f1115;
+  opacity: 0.85; }
+
+.arrow .trim {
+  fill: #a1a1a1; }
+
+.arrow .hover .trim {
+  fill: #8fa876; }
+
+.close .shadow {
+  opacity: 0.1;
+  fill: #000000;
+  stroke: none; }
+
+.close .face {
+  fill: #f75961; }
+
+.close .active .face {
+  fill: #d8353e; }
+
+.close .hover .face {
+  fill: #ff7a81; }
+
+.close .trim {
+  fill: #ffffff; }
+
+.overview .shadow1 {
+  opacity: 0.02; }
+
+.overview .shadow2 {
+  opacity: 0.04; }
+
+.overview .shadow3 {
+  opacity: 0.05; }
+
+.overview .shadow4 {
+  opacity: 0.06; }
+
+.overview .trim {
+  stroke: #ffffff; }
+
+.overview .trim1 {
+  opacity: 0.05; }
+
+.overview .trim2 {
+  opacity: 0.1; }
+
+.overview .trim3 {
+  opacity: 0.08; }
+
+.overview .trim4 {
+  opacity: 0.16; }
+
+.overview .trim5 {
+  opacity: 0.32; }
+
+.overview .trim6 {
+  opacity: 0.4; }
+
+#corner-ripple .face {
+  fill: url(#rg1); }
+
+#trash-icon .face {
+  opacity: 0.3;
+  fill: #000000; }
+
+#trash-icon .border {
+  opacity: 0.45;
+  stroke: #000000; }
+
+#trash-icon .trim {
+  opacity: 0.81;
+  fill: #ffffff; }
+
+.activities .trim {
+  fill: #ffffff; }
+
+.activities .active .trim {
+  fill: #5294e2; }
+
+.panel .face {
+  opacity: 0.95;
+  fill: #2f2f2f; }
+
+.panel .border {
+  opacity: 0.85;
+  stroke: #111111; }
+
+.windowlist .face {
+  fill: #8fa876; }
+
+]]></style>
+    
+    <clipPath id="cp1" clipPathUnits="userSpaceOnUse">
+      <rect x="5" y="5" width="35" height="200"/>
+    </clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="cp2">
+      <rect x="4" y="13" width="32" height="23"/>
+    </clipPath>
+    <clipPath id="cp3" clipPathUnits="userSpaceOnUse">
+      <rect x="4" y="4" width="32" height="23"/>
+    </clipPath>
+    <clipPath id="cp6" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="400" height="120"/>
+    </clipPath>
+    <radialGradient id="rg1" cx="60" cy="60" fx="60" fy="60" r="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8fa876" stop-opacity="0"/>
+      <stop offset="1" stop-color="#8fa876" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <g id="forms" transform="translate(400,0)">
+    <g id="workspace-form">
+      <rect id="f1" x="6" y="6" rx="2" ry="2" width="37" height="198"/>
+      <rect id="f2" x="5.5" y="5.5" rx="2.5" ry="2.5" width="38" height="199"/>
+      <path id="t1" d="M 23,98 23,112 M 16,105 30,105"/>
+    </g>
+    <g id="bg-form" transform="translate(50,0)">
+      <rect id="f3" width="22" height="21" x="9" y="9" rx="1.5" ry="1.5"/>
+      <rect id="f4" width="23" height="22" x="8.5" y="8.5" rx="2" ry="2"/>
+      <rect id="s1" width="31" height="31" x="4.5" y="4.5" rx="8" ry="8"/>
+      <rect id="s2" width="29" height="29" x="5.5" y="5.5" rx="7" ry="7"/>
+      <rect id="s3" width="27" height="27" x="6.5" y="6.5" rx="6" ry="6"/>
+      <rect id="s4" width="25" height="25" x="7.5" y="7.5" rx="5" ry="5"/>
+      <path id="s5" d="M 9.648,30.31 C 10.373,31.04 11.38,31.5 12.5,31.5 L 27.5,31.5 C 28.62,31.5 29.627,31.04 30.352,30.31 30.093,30.43 29.807,30.5 29.5,30.5 L 10.5,30.5 C 10.194,30.5 9.908,30.43 9.648,30.31 Z"/>
+      <path id="t4" d="M 9,26.5 31,26.5"/>
+    </g>
+    <g id="arrow-form" transform="translate(50,40)">
+      <rect id="n1" x="2" y="2" width="16" height="16"/>
+      <path id="t2" d="M 7.748,7.129 C 7.5,6.877 7.5,6.5 7.5,6 8,6 8.373,6 8.551,6.172 L 12.5,10 8.551,13.828 C 8.373,14 8,14 7.5,14 7.5,13.5 7.5,13.123 7.748,12.871 L 10.6,10 Z"/>
+    </g>
+    <g id="close-form" transform="translate(50,60)">
+      <rect id="n2" x="7" y="7" width="26" height="26"/>
+      <path id="t3" d="M 16,23.1 C 16,22.6 16.35,22.275 16.6,22 L 18.6,20 16.6,18 C 16.35,17.75 16,17.4 16,16.9 L 16,16 16.9,16 C 17.4,16 17.75,16.35 18,16.6 L 20,18.6 22,16.6 C 22.25,16.35 22.6,16 23.1,16 L 24,16 24,16.9 C 24,17.4 23.65,17.75 23.4,18 L 21.4,20 23.4,22 C 23.65,22.25 24,22.6 24,23.1 L 24,24 23.1,24 C 22.6,24 22.25,23.65 22,23.4 L 20,21.4 18,23.4 C 17.75,23.65 17.4,24 16.9,24 L 16,24 Z"/>
+      <circle id="f5" cx="20" cy="20" r="11"/>
+    </g>
+    <g id="overview-form" transform="translate(100,0)">
+      <rect id="n3" x="4" y="4" width="32" height="32"/>
+      <path d="M 18.2943,16.7234 A 4,4 0 0 0 12,20 4,4 0 0 0 20,20 4,4 0 1 1 28,20 4,4 0 0 1 21.7057,23.2766" id="t6"/>
+    </g>
+    <g id="activities-form" transform="translate(80,60)">
+      <rect id="n5" x="8" y="8" width="24" height="24"/>
+      <path id="t5" d="M 25,19 27,19 27,21 25,21 Z M 19,19 21,19 21,21 19,21 Z M 13,19 15,19 15,21 13,21 Z"/>
+    </g>
+  </g>
+  <g id="assets">
+    <rect x="0" y="0" width="400" height="350"/>
+    <g class="menu" transform="translate(0,350)">
+      <rect id="menu-separator" x="0" y="0" width="320" height="2" class="null"/>
+    </g>
+    <g class="workspace">
+      <g id="add-workspace" clip-path="url(#cp1)">
+        <use xlink:href="#f1" class="face"/>
+        <use xlink:href="#f2" class="border"/>
+        <use xlink:href="#t1" class="trim" stroke-width="2"/>
+      </g>
+      <g id="add-workspace-active" clip-path="url(#cp1)" class="active" transform="translate(50,0)">
+        <use xlink:href="#f1" class="face"/>
+        <use xlink:href="#f2" class="border"/>
+        <use xlink:href="#t1" class="trim" stroke-width="2"/>
+      </g>
+      <g id="add-workspace-hover" clip-path="url(#cp1)" class="hover" transform="translate(100,0)">
+        <use xlink:href="#f1" class="face"/>
+        <use xlink:href="#f2" class="border"/>
+        <use xlink:href="#t1" class="trim" stroke-width="2"/>
+      </g>
+    </g>
+    <g class="screen" transform="translate(150,0)">
+      <g id="bg">
+        <use xlink:href="#f3" class="face"/>
+        <use xlink:href="#f4" class="border"/>
+        <g class="shadow">
+          <use xlink:href="#s1" class="shadow1"/>
+          <use xlink:href="#s2" class="shadow2"/>
+          <use xlink:href="#s3" class="shadow3"/>
+          <use xlink:href="#s4" class="shadow4"/>
+          <use xlink:href="#s5" class="shadow5"/>
+        </g>
+      </g>
+      <g id="desklet" clip-path="url(#cp2)" transform="translate(40,0)">
+        <use xlink:href="#f3" class="face"/>
+        <use xlink:href="#f4" class="border"/>
+        <g class="shadow">
+          <use xlink:href="#s1" class="shadow1"/>
+          <use xlink:href="#s2" class="shadow2"/>
+          <use xlink:href="#s3" class="shadow3"/>
+          <use xlink:href="#s4" class="shadow4"/>
+          <use xlink:href="#s5" class="shadow5"/>
+        </g>
+      </g>
+      <g id="desklet-header" clip-path="url(#cp3)" class="active" transform="translate(80,0)">
+        <use xlink:href="#f3" class="face"/>
+        <use xlink:href="#f4" class="border"/>
+        <g class="shadow">
+          <use xlink:href="#s1" class="shadow1"/>
+          <use xlink:href="#s2" class="shadow2"/>
+          <use xlink:href="#s3" class="shadow3"/>
+          <use xlink:href="#s4" class="shadow4"/>
+        </g>
+        <use xlink:href="#t4" class="trim"/>
+      </g>
+      <g id="osd" class="osd" transform="translate(120,0)">
+        <use xlink:href="#f3" class="face"/>
+        <use xlink:href="#f4" class="border"/>
+        <g class="shadow">
+          <use xlink:href="#s1" class="shadow1"/>
+          <use xlink:href="#s2" class="shadow2"/>
+          <use xlink:href="#s3" class="shadow3"/>
+          <use xlink:href="#s4" class="shadow4"/>
+          <use xlink:href="#s5" class="shadow5"/>
+        </g>
+      </g>
+    </g>
+    <g class="arrow" transform="translate(150,40)">
+      <g id="calendar-arrow-left" class="left" transform="matrix(-1,0,0,1,20,0)">
+        <use xlink:href="#n1" class="null"/>
+        <use xlink:href="#t2" class="trim"/>
+      </g>
+      <g id="calendar-arrow-right" class="right" transform="translate(20,0)">
+        <use xlink:href="#n1" class="null"/>
+        <use xlink:href="#t2" class="trim"/>
+      </g>
+      <g id="calendar-arrow-left-hover" class="left hover" transform="matrix(-1,0,0,1,20,20)">
+        <use xlink:href="#n1" class="null"/>
+        <use xlink:href="#t2" class="trim"/>
+      </g>
+      <g id="calendar-arrow-right-hover" class="right hover" transform="translate(20,20)">
+        <use xlink:href="#n1" class="null"/>
+        <use xlink:href="#t2" class="trim"/>
+      </g>
+    </g>
+    <g class="close" transform="translate(190,40)">
+      <g id="close">
+        <use xlink:href="#n2" class="null"/>
+        <use xlink:href="#f5" x="0" y="1" class="shadow"/>
+        <use xlink:href="#f5" class="face"/>
+        <use xlink:href="#t3" class="trim"/>
+      </g>
+      <g id="close-active" class="active" transform="translate(40)">
+        <use xlink:href="#n2" class="null"/>
+        <use xlink:href="#f5" x="0" y="1" class="shadow"/>
+        <use xlink:href="#f5" class="face"/>
+        <use xlink:href="#t3" class="trim"/>
+      </g>
+      <g id="close-hover" class="hover" transform="translate(80)">
+        <use xlink:href="#n2" class="null"/>
+        <use xlink:href="#f5" x="0" y="1" class="shadow"/>
+        <use xlink:href="#f5" class="face"/>
+        <use xlink:href="#t3" class="trim"/>
+      </g>
+    </g>
+    <g class="overview" transform="translate(150,80)">
+      <g id="overview">
+        <use xlink:href="#n3" class="null"/>
+        <g class="shadow" transform="translate(0.3,0.8)">
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.02" stroke-width="7.2"/>
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.04" stroke-width="5.6"/>
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.05" stroke-width="4"/>
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.06" stroke-width="2.4"/>
+        </g>
+        <g class="trim">
+          <use xlink:href="#t6" class="trim3" style="opacity:0.08" stroke-width="3.6"/>
+          <use xlink:href="#t6" class="trim4" style="opacity:0.16" stroke-width="2.8"/>
+          <use xlink:href="#t6" class="trim5" style="opacity:0.32" stroke-width="2"/>
+          <use xlink:href="#t6" class="trim6" style="opacity:0.40" stroke-width="1.2"/>
+        </g>
+      </g>
+      <g id="overview-hover" class="hover" transform="translate(0,40)">
+        <use xlink:href="#n3" class="null"/>
+        <g class="shadow" transform="translate(0.3,0.8)">
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.02" stroke-width="7.2"/>
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.04" stroke-width="5.6"/>
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.05" stroke-width="4"/>
+          <use xlink:href="#t6" class="shadow1" style="opacity:0.06" stroke-width="2.4"/>
+        </g>
+        <g class="trim">
+          <use xlink:href="#t6" class="trim1" style="opacity:0.05" stroke-width="8"/>
+          <use xlink:href="#t6" class="trim2" style="opacity:0.1" stroke-width="5.4"/>
+          <use xlink:href="#t6" class="trim3" style="opacity:0.08" stroke-width="3.6"/>
+          <use xlink:href="#t6" class="trim4" style="opacity:0.16" stroke-width="2.8"/>
+          <use xlink:href="#t6" class="trim5" style="opacity:0.32" stroke-width="2"/>
+          <use xlink:href="#t6" class="trim6" style="opacity:0.40" stroke-width="1.2"/>
+        </g>
+      </g>
+    </g>
+    <g class="misc">
+      <g id="corner-ripple" transform="translate(190,80)">
+        <circle cx="60" cy="60" r="52" class="face"/>
+      </g>
+      <g id="trash-icon" clip-path="url(#cp6)" transform="translate(0,210)">
+        <rect class="null" x="0" y="0" width="400" height="120"/>
+        <rect x="7" y="7" width="386" height="116" rx="1" ry="1" class="face"/>
+        <rect x="6.5" y="6.5" width="387" height="116" rx="1.5" ry="1.5" class="border"/>
+        <path class="trim" d="M 208.5,84.5 A 1.5,1.5 0 0 0 211.5,84.5 L 211.5,55.5 A 1.5,1.5 0 1 0 208.5,55.5 Z M 198.5,84.5 A 1.5,1.5 0 0 0 201.5,84.5 L 201.5,55.5 A 1.5,1.5 0 1 0 198.5,55.5 Z M 188.5,84.5 A 1.5,1.5 0 0 0 191.5,84.5 L 191.5,55.5 A 1.5,1.5 0 1 0 188.5,55.5 Z M 193.5,39 A 3,3 0 0 1 196.5,36 L 203.5,36 A 3,3 0 0 1 206.5,39 Z M 217,49 217,85 A 6,6 0 0 1 211,91 L 189,91 A 6,6 0 0 1 183,85 L 183,49 Z M 180,47 A 6,6 0 0 1 186,41 L 214,41 A 6,6 0 0 1 220,47 Z"/>
+      </g>
+    </g>
+    <g class="activities" transform="translate(320,0)">
+      <g id="activities">
+        <use xlink:href="#n5" class="null"/>
+        <use xlink:href="#t5" class="trim"/>
+      </g>
+      <g id="activities-active" class="active" transform="translate(40,0)">
+        <use xlink:href="#n5" class="null"/>
+        <use xlink:href="#t5" class="trim"/>
+      </g>
+    </g>
+    <g class="panel" transform="translate(320,40)">
+      <g id="panel-bottom" class="bottom">
+        <rect x="6" y="7" width="27" height="26" class="face"/>
+        <path d="M 6 6.5 33 6.5" class="border"/>
+      </g>
+      <use id="panel-top" xlink:href="#panel-bottom" class="top" transform="matrix(1,0,0,-1,40,40)"/>
+    </g>
+    <g class="windowlist" transform="translate(320,80)">
+      <g id="window-list-active-bottom" class="bottom active">
+        <rect x="6" y="18" width="28" height="4" class="null"/>
+        <rect x="8" y="20" width="24" height="2" class="face"/>
+      </g>
+      <use id="window-list-active-top" xlink:href="#window-list-active-bottom" class="top active" transform="matrix(1,0,0,-1,40,40)"/>
+    </g>
+  </g>
+</svg>
