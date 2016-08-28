@@ -1,1 +1,32 @@
-title-2-active.xpm
+/* XPM */
+static char *title_2_inactive[] = {
+/* columns rows colors chars-per-pixel */
+"24 24 2 1 ",
+"  c gray85",
+". c #EEEEEE",
+/* pixels */
+"........................",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        "
+};

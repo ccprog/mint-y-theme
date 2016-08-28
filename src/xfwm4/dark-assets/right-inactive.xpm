@@ -1,1 +1,8 @@
-right-active.xpm
+/* XPM */
+static char *right_inactive[] = {
+/* columns rows colors chars-per-pixel */
+"3 1 1 1 ",
+"  c #2F2F2F",
+/* pixels */
+"   "
+};

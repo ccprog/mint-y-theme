@@ -1,1 +1,10 @@
-bottom-left-active.xpm
+/* XPM */
+static char *bottom_left_inactive[] = {
+/* columns rows colors chars-per-pixel */
+"3 3 1 1 ",
+"  c #2F2F2F",
+/* pixels */
+"   ",
+"   ",
+"   "
+};

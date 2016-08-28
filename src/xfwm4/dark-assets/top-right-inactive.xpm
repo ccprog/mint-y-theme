@@ -1,1 +1,33 @@
-top-right-active.xpm
+/* XPM */
+static char *top_right_inactive[] = {
+/* columns rows colors chars-per-pixel */
+"5 24 3 1 ",
+"  c #2F2F2F",
+". c #373737",
+"X c None",
+/* pixels */
+"....X",
+"    .",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     ",
+"     "
+};

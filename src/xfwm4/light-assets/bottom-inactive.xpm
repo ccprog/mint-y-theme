@@ -1,1 +1,11 @@
-bottom-active.xpm
+/* XPM */
+static char *bottom_inactive[] = {
+/* columns rows colors chars-per-pixel */
+"1 3 2 1 ",
+"  c gray75",
+". c gray85",
+/* pixels */
+".",
+".",
+" "
+};
