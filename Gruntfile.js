@@ -404,6 +404,25 @@ module.exports = function(grunt) {
         }
       },
     },
+    sass: {
+      options: {
+        sourceMap: false
+      },
+      cinnamon: {
+        expand: true,
+        cwd: 'src/cinnamon/sass/',
+        src: '*.scss',
+        ext: '.css',
+        dest: 'src/cinnamon/'
+      },
+      gtk_3_18: {
+        expand: true,
+        cwd: 'src/gtk-3.0/3.18/sass/',
+        src: '*.scss',
+        ext: '.css',
+        dest: 'src/gtk-3.0/3.18/'
+      },
+    }
   });
 
   grunt.task.loadNpmTasks('svg-icon-toolbox');
@@ -434,5 +453,13 @@ module.exports = function(grunt) {
   ]);
   grunt.task.registerTask('xfwm4_align', [
     'svg_icon_toolbox:xfwm4_align'
+  ]);
+
+  grunt.task.loadNpmTasks('grunt-sass');
+  grunt.task.registerTask('cinnamon_css', [
+    'sass:cinnamon'
+  ]);
+  grunt.task.registerTask('gtk_3_18_css', [
+    'sass:gtk_3_18'
   ]);
 };

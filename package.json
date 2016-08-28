@@ -12,6 +12,8 @@
     "JosephMcc (https://github.com/JosephMcc)",
     "Clement Lefebvre (https://github.com/clefebvre)",
     "Michael Webster (https://github.com/mtwebster)",
+    "Simon Brown (https://github.com/brownsr)",
+    "Marcus Lundgren (https://github.com/marcus-lundgren)",
     "Claus Colloseus <ccprog@gmx.de>"
   ],
   "license": "GPL-3.0",
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/linuxmint/mint-y-theme#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-sass": "^1.2.1",
     "svg-icon-toolbox": "^0.2.2"
   }
 }
