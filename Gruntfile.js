@@ -462,4 +462,6 @@ module.exports = function(grunt) {
   grunt.task.registerTask('gtk_3_18_css', [
     'sass:gtk_3_18'
   ]);
+
+  grunt.task.loadTasks('tasks/');
 };
